@@ -392,6 +392,16 @@ public class LDENPointNoiseMapFactory implements PointNoiseMap.PropagationProces
             }
         }
 
+
+    /**
+     * 
+     * The previous precision (5,2) caused the error:
+     * "Value too long for column 'HZ8000 NUMERIC(5, 2)'"
+     * This issue typically occurs when the propagation distance exceeds 3000 meters, resulting in values that exceed the allowed range.
+     * Proposed Fix:
+     * Update the numeric(5,2) columns to numeric(9,2) for fields LAEQ, LEQ, and frequency-related columns (HZ*).
+     * This ensures compatibility with larger numerical values generated in scenarios with significant propagation distances.
+     */        
         private String forgeCreateTable(String tableName) {
             StringBuilder sb = new StringBuilder("create table ");
             sb.append(tableName);
@@ -402,15 +412,15 @@ public class LDENPointNoiseMapFactory implements PointNoiseMap.PropagationProces
                 sb.append(" (IDRECEIVER bigint NOT NULL");
             }
             if (ldenConfig.computeLAEQOnly){
-                sb.append(", LAEQ numeric(5, 2)");
+                sb.append(", LAEQ numeric(9, 2)");
                 sb.append(");");
             } else {
                 for (int idfreq = 0; idfreq < ldenConfig.propagationProcessPathDataDay.freq_lvl.size(); idfreq++) {
                     sb.append(", HZ");
                     sb.append(ldenConfig.propagationProcessPathDataDay.freq_lvl.get(idfreq));
-                    sb.append(" numeric(5, 2)");
+                    sb.append(" numeric(9, 2)");
                 }
-                sb.append(", LAEQ numeric(5, 2), LEQ numeric(5, 2)");
+                sb.append(", LAEQ numeric(9, 2), LEQ numeric(9, 2)");
                 sb.append(");");
             }
             return sb.toString();
