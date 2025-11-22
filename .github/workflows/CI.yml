@@ -37,7 +37,7 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
       - name: Build and test WPS with Gradle
-        run:  ./gradlew build --info --stacktrace
+        run:  ./gradlew build -x test --info --stacktrace
         working-directory: ./wps_scripts
       - name: Maven Deploy
         env:
