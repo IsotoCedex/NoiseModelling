@@ -1,4 +1,47 @@
 {
+  "FEVE_E": {
+    "MITECO01": 1,
+    "MITECO02": 2
+  },
+  "FEVE_D": {
+    "MITECO03": 1
+  },
+  "CERCANIAS_A": {
+    "MITECO04": 2,
+    "MITECO05": 1
+  },
+  "CERCANIAS_B": {
+    "MITECO06": 3,
+    "MITECO07": 2
+  },
+  "CERCANIAS_C": {
+    "MITECO08": 2,
+    "MITECO09": 2
+  },
+  "REGIONAL_E": {
+    "MITECO10": 4,
+    "MITECO11": 1
+  },
+  "REGIONAL_D": {
+    "MITECO12": 2,
+    "MITECO13": 1
+  },
+  "LARGA_DISTANCIA": {
+    "MITECO14": 2,
+    "MITECO15": 11
+  },
+  "AVE": {
+    "MITECO16": 4,
+    "MITECO17": 4
+  },
+  "METRO": {
+    "MITECO18": 4,
+    "MITECO19": 1
+  },
+   "MERCANCIAS": {
+    "MITECO20": 1,
+    "MITECO21": 20
+  },
   "AM96-3U3": {
     "SNCF6": 1,
     "SNCF73": 9
